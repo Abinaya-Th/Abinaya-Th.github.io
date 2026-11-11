@@ -92,6 +92,14 @@ h3 { font-family: var(--display); font-weight: 600; font-size: 1.2rem; line-heig
 .bullets li { position: relative; padding-left: 20px; }
 .bullets li::before { content: ""; position: absolute; left: 0; top: 0.78em; width: 8px; height: 2px; background: var(--accent); border-radius: 1px; }
 
+/* full-cycle delivery */
+.pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.pillar { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.pillar .step { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+.pillar p:not(.step) { color: var(--muted); font-size: 0.94rem; }
+.pillar .chips { margin-top: auto; padding-top: 8px; }
+.pillar .chips li { font-size: 0.8rem; padding: 3px 10px; }
+
 /* experience timeline */
 .timeline { display: flex; flex-direction: column; }
 .tl { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 0 32px; padding-bottom: 40px; position: relative; }
@@ -136,6 +144,7 @@ footer { border-top: 1px solid var(--line); padding-block: 24px 40px; display: f
 @media (max-width: 899px) {
   .hero { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 48px 56px; }
   section { padding-block: 48px; }
+  .pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 699px) {
   .tl { grid-template-columns: minmax(0, 1fr); gap: 0; }
@@ -143,7 +152,7 @@ footer { border-top: 1px solid var(--line); padding-block: 24px 40px; display: f
   .tl-body::before { top: -20px; }
   .tl-body::after { top: -2px; }
   .project { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 22px; }
-  .skills, .edu { grid-template-columns: minmax(0, 1fr); }
+  .skills, .edu, .pillars { grid-template-columns: minmax(0, 1fr); }
   .glance div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
@@ -159,6 +168,7 @@ body { margin: 0; }
       <a class="brand" href="#top">Abinaya Luxmikanthan</a>
       <nav aria-label="Sections">
         <ul>
+          <li><a href="#delivery">Delivery</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -171,9 +181,9 @@ body { margin: 0; }
 
   <div class="hero">
     <div>
-      <p class="eyebrow">Backend software engineer</p>
+      <p class="eyebrow">Full-cycle software engineer</p>
       <h1>Abinaya Luxmikanthan</h1>
-      <p class="lede">I build Java and Spring Boot REST APIs on PostgreSQL and MySQL, with more than two years of experience. I currently work as Associate Tech Lead and Lead Trainer at Samuel Gnanam IT Centre in Jaffna.</p>
+      <p class="lede">I take software from the first API to production: Java and Spring Boot backends, React frontend integration, QA testing and deployment with Docker and CI/CD. I have more than two years of experience, have delivered 3 live web portals, and currently work as Associate Tech Lead and Lead Trainer at Samuel Gnanam IT Centre in Jaffna.</p>
       <div class="cta">
         <a class="btn" href="#projects">View projects</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/abinaya-luxmikanthan/" target="_blank" rel="noopener">LinkedIn</a>
@@ -184,13 +194,44 @@ body { margin: 0; }
       <div><dt>Role</dt><dd>Associate Tech Lead and Lead Trainer</dd></div>
       <div><dt>Company</dt><dd>Samuel Gnanam IT Centre</dd></div>
       <div><dt>Based in</dt><dd>Jaffna, Sri Lanka (UTC+05:30)</dd></div>
-      <div><dt>Stack</dt><dd>Java, Spring Boot, PostgreSQL, MySQL, Docker</dd></div>
+      <div><dt>Covers</dt><dd>Backend, frontend integration, QA testing and deployment</dd></div>
+      <div><dt>Stack</dt><dd>Java, Spring Boot, React, PostgreSQL, MySQL, Docker</dd></div>
       <div><dt>Testing</dt><dd>JUnit, Mockito, Postman</dd></div>
-      <div><dt>Degree</dt><dd>BSc (Hons) Computer Science and Software Engineering, University of Bedfordshire (2024)</dd></div>
+      <div><dt>Education</dt><dd>BSc (Hons) Computer Science and Software Engineering, University of Bedfordshire</dd></div>
     </dl>
   </div>
 
   <main>
+    <section id="delivery">
+      <h2>Full-cycle delivery</h2>
+      <div class="pillars">
+        <article class="pillar">
+          <p class="step">Build</p>
+          <h3>Backend development</h3>
+          <p>REST APIs and business logic in Java and Spring Boot, with PostgreSQL and MySQL schemas managed through Flyway migrations.</p>
+          <ul class="chips"><li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>Flyway</li></ul>
+        </article>
+        <article class="pillar">
+          <p class="step">Integrate</p>
+          <h3>Frontend integration</h3>
+          <p>Connecting the APIs to the React frontend and building the screens that consume them, so each feature works end to end.</p>
+          <ul class="chips"><li>React</li><li>JavaScript</li><li>REST</li></ul>
+        </article>
+        <article class="pillar">
+          <p class="step">Test</p>
+          <h3>QA testing</h3>
+          <p>Writing test cases, testing APIs in Postman, unit testing with JUnit and Mockito, and reporting, tracking and verifying defects.</p>
+          <ul class="chips"><li>Postman</li><li>JUnit</li><li>Mockito</li><li>Test cases</li></ul>
+        </article>
+        <article class="pillar">
+          <p class="step">Ship</p>
+          <h3>Deployment</h3>
+          <p>Containerizing services with Docker, deploying to Azure and Linux servers behind Nginx, and automating releases with GitHub Actions.</p>
+          <ul class="chips"><li>Docker</li><li>Azure</li><li>Nginx</li><li>GitHub Actions</li></ul>
+        </article>
+      </div>
+    </section>
+
     <section id="experience">
       <h2>Experience</h2>
       <ol class="timeline">
@@ -201,8 +242,8 @@ body { margin: 0; }
             <h3>Associate Tech Lead and Lead Trainer</h3>
             <p class="org">Samuel Gnanam IT Centre, Jaffna</p>
             <ul class="bullets">
-              <li>Lead code reviews, technical guidance and design discussions for a team of engineers.</li>
-              <li>Mentor software engineering trainees through hands-on practical sessions and project work.</li>
+              <li>Lead code reviews, technical guidance and design discussions for a team of engineers, improving delivery quality across 3 live web products.</li>
+              <li>Mentor software engineering trainees across 3 core areas: Java, Spring Boot and Git.</li>
             </ul>
           </div>
         </li>
@@ -213,7 +254,7 @@ body { margin: 0; }
             <h3>Demo Trainer, part-time</h3>
             <p class="org">University of Vavuniya, Sri Lanka</p>
             <ul class="bullets">
-              <li>Deliver practical demo sessions to university students on software development topics.</li>
+              <li>Deliver practical demo sessions to university students on Java and software development topics.</li>
             </ul>
           </div>
         </li>
@@ -224,10 +265,10 @@ body { margin: 0; }
             <h3>Senior Software Engineer</h3>
             <p class="org">Samuel Gnanam IT Centre, Jaffna</p>
             <ul class="bullets">
-              <li>Designed, built and maintained Java and Spring Boot REST APIs on PostgreSQL and MySQL for internal products including Defect Tracker Pro, SGIC Portal and UOV Portal.</li>
+              <li>Designed, built and maintained Java and Spring Boot REST APIs on PostgreSQL and MySQL for 3 live web products: Defect Tracker Pro, SGIC Portal and UOV Portal.</li>
               <li>Managed schema changes with Flyway migrations so deployments repeat cleanly across environments.</li>
-              <li>Containerized services with Docker and deployed on Azure and Linux servers behind Nginx.</li>
-              <li>Automated build, test and deployment with GitHub Actions CI/CD pipelines.</li>
+              <li>Containerized services with Docker and deployed to Azure and Linux servers behind Nginx, giving repeatable releases.</li>
+              <li>Automated build, test and deployment with GitHub Actions CI/CD pipelines, reducing manual release steps.</li>
             </ul>
           </div>
         </li>
@@ -238,8 +279,8 @@ body { margin: 0; }
             <h3>Software Engineer</h3>
             <p class="org">Samuel Gnanam IT Centre, Jaffna</p>
             <ul class="bullets">
-              <li>Developed backend features and REST endpoints in Java and Spring Boot, and built the React screens that consumed them.</li>
-              <li>Wrote unit tests with JUnit and Mockito, tested APIs with Postman, and fixed defects found in code review and QA.</li>
+              <li>Developed backend features and REST APIs in Java and Spring Boot, and built the React frontend screens that consume them.</li>
+              <li>Wrote unit tests with JUnit and Mockito, tested REST APIs with Postman, and fixed defects found in code review and QA.</li>
               <li>Worked with Git and GitHub in an Agile team alongside QA and product colleagues.</li>
             </ul>
           </div>
@@ -255,31 +296,31 @@ body { margin: 0; }
         <article class="project">
           <div>
             <h3>SGIC Portal</h3>
-            <p class="role">Backend developer</p>
+            <p class="role">Backend developer and frontend integration</p>
             <ul class="tags" aria-label="Technologies">
               <li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>MySQL</li><li>Flyway</li>
             </ul>
-            <a class="btn ghost" href="https://portal.samuelgnanam.com/login" target="_blank" rel="noopener">Open live portal</a>
+            <a class="btn ghost" href="http://104.43.90.134:8001/login" target="_blank" rel="noopener">Open live portal</a>
           </div>
           <ul class="bullets">
-            <li>Built REST APIs for institute management, including the Task Card Management and Leave Management modules.</li>
+            <li>Built REST APIs for 2 core institute management modules: Task Card Management and Leave Management.</li>
             <li>Designed and managed the PostgreSQL and MySQL database structures, with Flyway migrations.</li>
-            <li>Implemented the backend business logic and integrated the APIs with the frontend.</li>
+            <li>Implemented the backend business logic and integrated the REST APIs with the React frontend.</li>
           </ul>
         </article>
 
         <article class="project">
           <div>
             <h3>UOV Portal</h3>
-            <p class="role">Backend developer</p>
+            <p class="role">Backend developer and frontend integration</p>
             <ul class="tags" aria-label="Technologies">
               <li>Java</li><li>Spring Boot</li><li>REST</li><li>React</li>
             </ul>
             <a class="btn ghost" href="https://urp.samuelgnanam.com/login" target="_blank" rel="noopener">Open live portal</a>
           </div>
           <ul class="bullets">
-            <li>Built Spring Boot REST APIs and database logic for university management, including Assessment and Examination Management.</li>
-            <li>Implemented backend services and integrated the APIs with the React frontend.</li>
+            <li>Built Spring Boot REST APIs and database logic for university management, covering 2 modules: Assessment Management and Examination Management.</li>
+            <li>Implemented backend services and integrated the REST APIs with the React frontend.</li>
             <li>Worked on database operations and business logic behind university workflows.</li>
           </ul>
         </article>
@@ -295,7 +336,7 @@ body { margin: 0; }
           </div>
           <ul class="bullets">
             <li>Tested application functionality, prepared test cases, and identified, reported and tracked defects.</li>
-            <li>Ran REST API tests in Postman and verified defect fixes.</li>
+            <li>Ran REST API tests in Postman and verified defect fixes before release.</li>
             <li>Developed and maintained the backend for defect management, tracking and resolution workflows.</li>
           </ul>
         </article>
